@@ -10,6 +10,9 @@ namespace SeeShark // Note: actual namespace depends on the project name.
 
         [DllImport("rusted_sea.dll")]
         public static extern ExampleStruct get_example_struct();
+
+        [DllImport("rusted_sea.dll")]
+        public static extern bool get_opposite_bool(bool condition);
     }
 
     public class REM
@@ -19,5 +22,8 @@ namespace SeeShark // Note: actual namespace depends on the project name.
 
         [Benchmark]
         public ExampleStruct GetExampleStruct() => RustExampleMethods.get_example_struct();
+
+        [Benchmark]
+        public bool GetBool() => RustExampleMethods.get_opposite_bool(true);
     }
 }

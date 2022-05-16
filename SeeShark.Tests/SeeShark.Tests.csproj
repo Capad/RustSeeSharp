@@ -18,4 +18,18 @@
     <ProjectReference Include="..\SeeShark\SeeShark.csproj" />
   </ItemGroup>
 
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition=" '$(Configuration)' == 'Release'">
+    <Exec WorkingDirectory="../rusted_sea/" Command="cargo build --release" />
+  </Target>
+  <Target Name="CopyCustomContent" AfterTargets="AfterBuild" Condition=" '$(Configuration)' == 'Release'">
+    <Copy SourceFiles="../rusted_sea/target/release/rusted_sea.dll" DestinationFolder="$(OutDir)" />
+  </Target>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition=" '$(Configuration)' == 'Debug'">
+    <Exec WorkingDirectory="../rusted_sea/" Command="cargo build" />
+  </Target>
+  <Target Name="CopyCustomContent" AfterTargets="AfterBuild" Condition=" '$(Configuration)' == 'Debug'">
+    <Copy SourceFiles="../rusted_sea/target/debug/rusted_sea.dll" DestinationFolder="$(OutDir)" />
+  </Target>
+  
 </Project>

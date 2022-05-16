@@ -13,6 +13,11 @@ namespace SeeShark // Note: actual namespace depends on the project name.
         {
             return new ExampleStruct() { x = 1, y = 2 };
         }
+
+        public static bool get_opposite_bool(bool v)
+        {
+            return !v;
+        }
     }
 
     public class SEM
@@ -22,5 +27,8 @@ namespace SeeShark // Note: actual namespace depends on the project name.
 
         [Benchmark]
         public ExampleStruct GetExampleStruct() => SharpExampleMethods.get_example_struct();
+
+        [Benchmark]
+        public bool GetBool() => SharpExampleMethods.get_opposite_bool(true);
     }
 }
