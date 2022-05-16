@@ -4,6 +4,18 @@ pub extern fn add_numbers(arg1: i32, arg2: i32) -> i32 {
     arg1 + arg2
 }
 
+#[repr(C)]
+pub struct ExampleStruct {
+    pub x: i32,
+    pub y: i32,
+}
+
+#[no_mangle]
+pub extern fn get_example_struct() -> ExampleStruct {
+    print!("Rust says: get_example_struct()\n");
+    ExampleStruct { x: 1, y: 2 }
+}
+
 #[cfg(test)]
 mod tests {
     use crate::add_numbers;
