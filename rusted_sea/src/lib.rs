@@ -1,6 +1,5 @@
 #[no_mangle]
 pub extern fn add_numbers(arg1: i32, arg2: i32) -> i32 {
-    print!("Rust says: add_numbers({}, {})\n", arg1, arg2);
     arg1 + arg2
 }
 
@@ -12,7 +11,6 @@ pub struct ExampleStruct {
 
 #[no_mangle]
 pub extern fn get_example_struct() -> ExampleStruct {
-    print!("Rust says: get_example_struct()\n");
     ExampleStruct { x: 1, y: 2 }
 }
 
