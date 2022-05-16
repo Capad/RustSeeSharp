@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "bungcip.better-toml",
+        "ms-dotnettools.csharp",
+        "vadimcn.vscode-lldb",
+        "serayuzgur.crates",
+        "zakcodes.rust-snippets",
+        "dustypomerleau.rust-syntax",
+        "matklad.rust-analyzer"
+    ]
+}
