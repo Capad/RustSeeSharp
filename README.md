@@ -28,4 +28,16 @@ I was using "classic" tutorial from <https://dev.to/living_syn/calling-rust-from
 
 ### Drawback 4: benchmarking Rust with dotnet tools
 
-I'm using BenchmarkDotNet to measure performance of both imported Rust DLL and native C# code. It does not seem like a good idea, maybe I'll figure something out. Also, covering both static implementations with proper objects with default constructor seems a bit over the top. 
+I'm using BenchmarkDotNet to measure performance of both imported Rust DLL and native C# code. It does not seem like a good idea, maybe I'll figure something out. Also, covering both static implementations with proper objects with default constructor seems a bit over the top.
+
+### Drawback 5: direct calling for build
+
+In order to mitigate issues with incorrect version, all projects calling for Rust DLLs are executing `cargo build` or `cargo build --release`, then copying DLL from Rust `target` folders to respective .NET `bin`folders, as it needs to be present in the same folder as executable.
+
+### Concern 1: security
+
+Seems relatively easy to attach malicious code inside one of Rust functions and execute unwanted process on target machine.
+
+### Concern 2: building with Docker
+
+For me, Rust programs are notoriously painful when I'm trying to build Docker images - adding on top of it dotnet calls for multistage build.
