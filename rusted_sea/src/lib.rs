@@ -19,9 +19,10 @@ pub extern fn get_opposite_bool(condition: bool) -> bool {
     !condition
 }
 
+// this is incorrect implementation, fails on C# call
 #[no_mangle]
 pub extern fn get_hello_sea(v: String) -> String {
-    let result = format!("{}", v);
+    let result = String::from(v);
     result.replace("world", "sea")
 }
 
