@@ -19,9 +19,15 @@ pub extern fn get_opposite_bool(condition: bool) -> bool {
     !condition
 }
 
+#[no_mangle]
+pub extern fn get_hello_sea(v: String) -> String {
+    let result = format!("{}", v);
+    result.replace("world", "sea")
+}
+
 #[cfg(test)]
 mod tests {
-    use crate::{add_numbers, get_opposite_bool};
+    use crate::{add_numbers, get_opposite_bool, get_hello_sea};
 
     #[test]
     fn add_numbers_test() {
@@ -39,5 +45,11 @@ mod tests {
     fn get_bool_false_test() {
         let result: bool = get_opposite_bool(false);
         assert_eq!(result, true);
+    }
+
+    #[test]
+    fn get_hello_sea_should_replace_world() {
+        let result: String = get_hello_sea("Howdy world".to_string());
+        assert_eq!(result, "Howdy sea".to_string());
     }
 }

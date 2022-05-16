@@ -18,6 +18,11 @@ namespace SeeShark // Note: actual namespace depends on the project name.
         {
             return !v;
         }
+
+        public static string get_hello_sea(string v)
+        {
+            return v.Replace("world", "sea");
+        }
     }
 
     public class SEM
@@ -30,5 +35,8 @@ namespace SeeShark // Note: actual namespace depends on the project name.
 
         [Benchmark]
         public bool GetBool() => SharpExampleMethods.get_opposite_bool(true);
+
+        [Benchmark]
+        public string GetString() => SharpExampleMethods.get_hello_sea("Hello world");
     }
 }
