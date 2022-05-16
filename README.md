@@ -4,10 +4,9 @@ Proof of concept on integrating Rust in C# applications for smaller, faster and 
 
 ## What's what?
 
-"Rusted Sea" (rusted_sea) is an example project in Rust, that provides some example operations.
-"Sharp See" (SharpSea) is the same implementation in C# to compare CPU and memory usage.
-"See Shark" (SeeShark) is a console application in C# on top of it, providing high level interface and benchmarks for operations.
-"Tests" (SeeShark.Tests) are, as name suggests, tests for C# project - making sure outputs from Rust functions are the same.
+- "Rusted Sea" (rusted_sea) is an example project in Rust, that provides some example operations.
+- "See Shark" (SeeShark) is a console application in C# on top of it, providing high level interface and benchmarks for operations.
+- "Tests" (SeeShark.Tests) are, as name suggests, tests for C# project - making sure outputs from Rust functions are the same.
 
 ## Report
 
