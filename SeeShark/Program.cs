@@ -1,20 +1,16 @@
 ﻿using System;
-
-
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
 namespace SeeShark // Note: actual namespace depends on the project name.
 {
 
-    internal class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            var addedNumbers = ExampleMethods.add_numbers(10, 5);
-            Console.WriteLine(addedNumbers);
+            var summarySharp = BenchmarkRunner.Run<SEM>();
 
-            var exampleStruct = ExampleMethods.get_example_struct();
-            Console.WriteLine($"{exampleStruct.x}, {exampleStruct.y}");
-            
-            Console.ReadLine();
+            var summaryRust = BenchmarkRunner.Run<REM>();
         }
     }
 }
