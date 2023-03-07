@@ -6,6 +6,7 @@
         "serayuzgur.crates",
         "zakcodes.rust-snippets",
         "dustypomerleau.rust-syntax",
-        "matklad.rust-analyzer"
+        "rust-lang.rust-analyzer",
+        "ms-azuretools.vscode-docker"
     ]
 }

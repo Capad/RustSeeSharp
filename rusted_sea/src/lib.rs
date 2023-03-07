@@ -19,16 +19,9 @@ pub extern fn get_opposite_bool(condition: bool) -> bool {
     !condition
 }
 
-// this is incorrect implementation, fails on C# call
-#[no_mangle]
-pub extern fn get_hello_sea(v: String) -> String {
-    let result = String::from(v);
-    result.replace("world", "sea")
-}
-
 #[cfg(test)]
 mod tests {
-    use crate::{add_numbers, get_opposite_bool, get_hello_sea};
+    use crate::{add_numbers, get_opposite_bool};
 
     #[test]
     fn add_numbers_test() {
@@ -48,9 +41,4 @@ mod tests {
         assert_eq!(result, true);
     }
 
-    #[test]
-    fn get_hello_sea_should_replace_world() {
-        let result: String = get_hello_sea("Howdy world".to_string());
-        assert_eq!(result, "Howdy sea".to_string());
-    }
 }

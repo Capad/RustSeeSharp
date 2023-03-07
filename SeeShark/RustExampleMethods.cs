@@ -1,7 +1,7 @@
+using SeeSharkLib;
 using System.Runtime.InteropServices;
-using BenchmarkDotNet.Attributes;
 
-namespace SeeShark // Note: actual namespace depends on the project name.
+namespace SeeShark
 {
     public static class RustExampleMethods
     {
@@ -13,23 +13,5 @@ namespace SeeShark // Note: actual namespace depends on the project name.
 
         [DllImport("rusted_sea.dll")]
         public static extern bool get_opposite_bool(bool condition);
-        
-        [DllImport("rusted_sea.dll")]
-        public static extern string get_hello_sea(string v);
-    }
-
-    public class REM
-    {
-        [Benchmark]
-        public Int32 AddNumbers() => RustExampleMethods.add_numbers(10, 5);
-
-        [Benchmark]
-        public ExampleStruct GetExampleStruct() => RustExampleMethods.get_example_struct();
-
-        [Benchmark]
-        public bool GetBool() => RustExampleMethods.get_opposite_bool(true);
-
-        [Benchmark]
-        public string GetString() => RustExampleMethods.get_hello_sea("Hello world");
     }
 }

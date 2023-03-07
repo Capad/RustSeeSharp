@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SeeSharkLib;
 
 namespace SeeShark.Tests;
 
@@ -26,13 +27,5 @@ public class ExampleMethodsTests
         var rustBool = RustExampleMethods.get_opposite_bool(false);
         var sharpBool = SharpExampleMethods.get_opposite_bool(false);
         Assert.AreEqual(sharpBool, rustBool);
-    }
-
-    [TestMethod]
-    public void StringShouldReturnSameResult()
-    {
-        var rustString = RustExampleMethods.get_hello_sea("Hello world");
-        var sharpString = SharpExampleMethods.get_hello_sea("Hello world");
-        Assert.AreEqual(sharpString, rustString);
     }
 }
