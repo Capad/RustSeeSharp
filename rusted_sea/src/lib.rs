@@ -1,3 +1,5 @@
+#![no_main]
+
 #[no_mangle]
 pub extern fn add_numbers(arg1: i32, arg2: i32) -> i32 {
     arg1 + arg2
